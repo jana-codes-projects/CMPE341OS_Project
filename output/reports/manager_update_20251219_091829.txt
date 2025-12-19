@@ -1,0 +1,30 @@
+Manager Update Report
+Timestamp: Fri Dec 19 09:18:30 UTC 2025
+==================================
+
+New Employees:
+10001,ayse.aydin,Data,Active
+10002,mehmet.kaya,Dev,Active
+10003,elif.demir,HR,Active
+10004,can.ozkan,Marketing,Active
+10005,zeynep.sari,Finance,Active
+10006,burak.yilmaz,Dev,Terminated
+10007,deniz.arslan,Data,Active
+10008,jana.barazi,Computer,Active
+10009,muhammad.ahmad,Computer,Active
+10010,sude.kazanci,Computer,Terminated
+
+Removed Employees:
+10001,ayse.aydin,Data ,Active
+10002,mehmet.kaya,Dev,Active
+10003,elif.demir,HR,Active
+10004,can.ozkan,Marketing,Active
+10005,zeynep.sari,Finance,Active
+10006,burak.yilmaz,Dev,Terminated
+10007,deniz.arslan,Data ,Active
+10008,jana.barazi,Computer,Active
+10009,muhammad.ahmad,Computer,Active
+10010,sude.kazanci,Computer,Terminated
+
+Terminated Employees:
+None
