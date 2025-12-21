@@ -1,11 +1,11 @@
 Employee_id,Username,Full_Name,Department,Status
-10001,ayse.aydin,Ayşe Aydın,Data,active
-10002,mehmet.kaya,Mehmet Kaya,Dev,active
-10003,elif.demir,Elif Demir,HR,active
-10005,zeynep.sari,Zeynep Sarı,Finance,active
-10006,burak.yilmaz,Burak Yılmaz,Dev,terminated
-10007,deniz.arslan,Deniz Arslan,Data,active
-10008,jana.barazi,Jana Albarazi,Computer,active
-10009,muhammad.ahmad,Muhammad Ahmad,Computer,active
-10010,sude.kazanci,Sude Kazancı,Computer,terminated
-10011,ahmet.yilmaz,Ahmet Yılmaz,Dev,Active
+10001,ayse.aydin,Ayşe Aydın,Data,Active
+10002,mehmet.kaya,Mehmet Kaya,Dev,Active
+10003,elif.demir,Elif Demir,HR,Active
+10004,can.ozkan,Can Özkan,marketing,Active 
+10005,zeynep.sari,Zeynep Sarı,Finance,Active
+10006,burak.yilmaz,Burak Yılmaz,Dev,Terminated
+10007,deniz.arslan,Deniz Arslan,Data,Active
+10008,jana.barazi,Jana Albarazi,Computer,Active
+10009,muhammad.ahmad,Muhammad Ahmad,Computer,Active
+10010,sude.kazanci,Sude Kazancı,Computer,Terminated
