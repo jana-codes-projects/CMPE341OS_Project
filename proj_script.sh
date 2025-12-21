@@ -264,26 +264,30 @@ onboard_employee() {
     local department="$4"
     local status="$5"
     
-    # Only onboard if status is active
-    if [[ "$status" != "active" ]]; then
-        log_warning "Skipping onboarding for $username (status: $status)"
-        return 0
-    fi
-    
-    log "Onboarding employee: $username ($name_surname) - Department: $department"
-    
+    log "Ensuring user exists: $username ($name_surname)"
+
     # Ensure department group exists
     ensure_group_exists "$department"
-    
-    # Create user account
-    create_user_account "$username"
-    
-    # Add user to department group
-    add_user_to_group "$username" "$department"
-    
-    ((ADDED_COUNT++))
-    log_success "Onboarded: $username"
 
+    # ALWAYS create user if missing
+    if ! id "$username" &>/dev/null; then
+        create_user_account "$username"
+        log_success "Created: $username"
+    else
+        log "User already exists: $username"
+    fi
+
+    # Ensure group membership
+    add_user_to_group "$username" "$department"
+
+    # Count only active users as onboarding
+    if [[ "$status" == "active" ]]; then
+        log "Onboarding employee: $username ($name_surname) - Department: $department"
+        ((ADDED_COUNT++))
+        log_success "Onboarded: $username"
+    else
+        log_warning "User created but status is $status: $username"
+    fi
 }
 
 process_onboarding() {

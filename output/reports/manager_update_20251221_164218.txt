@@ -1,25 +1,14 @@
 ================================================================================
                             Manager Employee Update
 ================================================================================
-Timestamp: 2025-12-21 16:03:02
+Timestamp: 2025-12-21 16:42:18
 Mode: LIVE
 
 Summary
 -------
-Added employees (active)  : 8
+Added employees (active)  : 0
 Removed employees         : 0
 Offboarded by status      : 2
-
-Added (username, department)
-----------------------------
-ayse.aydin, data
-mehmet.kaya, dev
-elif.demir, hr
-can.ozkan, marketing
-zeynep.sari, finance
-deniz.arslan, data
-jana.barazi, computer
-muhammad.ahmad, computer
 
 Terminated processed (username, department)
 -------------------------------------------

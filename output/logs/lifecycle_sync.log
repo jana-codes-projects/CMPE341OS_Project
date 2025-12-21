@@ -1,87 +1,27 @@
-2025-12-21 16:03:01 | [INFO]  | START lifecycle sync | file=employees.csv | dry_run=0
-2025-12-21 16:03:01 | [INFO]  | Detecting changes between current and previous employee data...
-2025-12-21 16:03:01 | [INFO]  | Normalizing CSV: /workspaces/CMPE341OS_Project/employees.csv
-2025-12-21 16:03:01 | [OK]    | CSV normalized and sorted
-2025-12-21 16:03:01 | [WARN]  | No previous snapshot found - treating all employees as new
-2025-12-21 16:03:01 | [INFO]  | Processing onboarding for new employees...
-2025-12-21 16:03:01 | [INFO]  | Onboarding employee: ayse.aydin (Ayşe Aydın) - Department: data
-2025-12-21 16:03:01 | [RUN]   | groupadd "data"
-2025-12-21 16:03:02 | [OK]    | Group created: data
-2025-12-21 16:03:02 | [RUN]   | useradd -m "ayse.aydin"
-2025-12-21 16:03:02 | [OK]    | User created: ayse.aydin
-2025-12-21 16:03:02 | [RUN]   | usermod -aG "data" "ayse.aydin"
-2025-12-21 16:03:02 | [OK]    | Added ayse.aydin to group data
-2025-12-21 16:03:02 | [OK]    | Onboarded: ayse.aydin
-2025-12-21 16:03:02 | [INFO]  | Onboarding employee: mehmet.kaya (Mehmet Kaya) - Department: dev
-2025-12-21 16:03:02 | [RUN]   | groupadd "dev"
-2025-12-21 16:03:02 | [OK]    | Group created: dev
-2025-12-21 16:03:02 | [RUN]   | useradd -m "mehmet.kaya"
-2025-12-21 16:03:02 | [OK]    | User created: mehmet.kaya
-2025-12-21 16:03:02 | [RUN]   | usermod -aG "dev" "mehmet.kaya"
-2025-12-21 16:03:02 | [OK]    | Added mehmet.kaya to group dev
-2025-12-21 16:03:02 | [OK]    | Onboarded: mehmet.kaya
-2025-12-21 16:03:02 | [INFO]  | Onboarding employee: elif.demir (Elif Demir) - Department: hr
-2025-12-21 16:03:02 | [RUN]   | groupadd "hr"
-2025-12-21 16:03:02 | [OK]    | Group created: hr
-2025-12-21 16:03:02 | [RUN]   | useradd -m "elif.demir"
-2025-12-21 16:03:02 | [OK]    | User created: elif.demir
-2025-12-21 16:03:02 | [RUN]   | usermod -aG "hr" "elif.demir"
-2025-12-21 16:03:02 | [OK]    | Added elif.demir to group hr
-2025-12-21 16:03:02 | [OK]    | Onboarded: elif.demir
-2025-12-21 16:03:02 | [INFO]  | Onboarding employee: can.ozkan (Can Özkan) - Department: marketing
-2025-12-21 16:03:02 | [RUN]   | groupadd "marketing"
-2025-12-21 16:03:02 | [OK]    | Group created: marketing
-2025-12-21 16:03:02 | [RUN]   | useradd -m "can.ozkan"
-2025-12-21 16:03:02 | [OK]    | User created: can.ozkan
-2025-12-21 16:03:02 | [RUN]   | usermod -aG "marketing" "can.ozkan"
-2025-12-21 16:03:02 | [OK]    | Added can.ozkan to group marketing
-2025-12-21 16:03:02 | [OK]    | Onboarded: can.ozkan
-2025-12-21 16:03:02 | [INFO]  | Onboarding employee: zeynep.sari (Zeynep Sarı) - Department: finance
-2025-12-21 16:03:02 | [RUN]   | groupadd "finance"
-2025-12-21 16:03:02 | [OK]    | Group created: finance
-2025-12-21 16:03:02 | [RUN]   | useradd -m "zeynep.sari"
-2025-12-21 16:03:02 | [OK]    | User created: zeynep.sari
-2025-12-21 16:03:02 | [RUN]   | usermod -aG "finance" "zeynep.sari"
-2025-12-21 16:03:02 | [OK]    | Added zeynep.sari to group finance
-2025-12-21 16:03:02 | [OK]    | Onboarded: zeynep.sari
-2025-12-21 16:03:02 | [WARN]  | Skipping onboarding for burak.yilmaz (status: terminated)
-2025-12-21 16:03:02 | [INFO]  | Onboarding employee: deniz.arslan (Deniz Arslan) - Department: data
-2025-12-21 16:03:02 | [RUN]   | useradd -m "deniz.arslan"
-2025-12-21 16:03:02 | [OK]    | User created: deniz.arslan
-2025-12-21 16:03:02 | [RUN]   | usermod -aG "data" "deniz.arslan"
-2025-12-21 16:03:02 | [OK]    | Added deniz.arslan to group data
-2025-12-21 16:03:02 | [OK]    | Onboarded: deniz.arslan
-2025-12-21 16:03:02 | [INFO]  | Onboarding employee: jana.barazi (Jana Albarazi) - Department: computer
-2025-12-21 16:03:02 | [RUN]   | groupadd "computer"
-2025-12-21 16:03:02 | [OK]    | Group created: computer
-2025-12-21 16:03:02 | [RUN]   | useradd -m "jana.barazi"
-2025-12-21 16:03:02 | [OK]    | User created: jana.barazi
-2025-12-21 16:03:02 | [RUN]   | usermod -aG "computer" "jana.barazi"
-2025-12-21 16:03:02 | [OK]    | Added jana.barazi to group computer
-2025-12-21 16:03:02 | [OK]    | Onboarded: jana.barazi
-2025-12-21 16:03:02 | [INFO]  | Onboarding employee: muhammad.ahmad (Muhammad Ahmad) - Department: computer
-2025-12-21 16:03:02 | [RUN]   | useradd -m "muhammad.ahmad"
-2025-12-21 16:03:02 | [OK]    | User created: muhammad.ahmad
-2025-12-21 16:03:02 | [RUN]   | usermod -aG "computer" "muhammad.ahmad"
-2025-12-21 16:03:02 | [OK]    | Added muhammad.ahmad to group computer
-2025-12-21 16:03:02 | [OK]    | Onboarded: muhammad.ahmad
-2025-12-21 16:03:02 | [WARN]  | Skipping onboarding for sude.kazanci (status: terminated)
-2025-12-21 16:03:02 | [OK]    | Onboarding processing complete
-2025-12-21 16:03:02 | [INFO]  | Processing offboarding for removed employees...
-2025-12-21 16:03:02 | [INFO]  | No employees to offboard (removed)
-2025-12-21 16:03:02 | [INFO]  | Processing employees with terminated status...
-2025-12-21 16:03:02 | [INFO]  | Processing terminated status for: burak.yilmaz
-2025-12-21 16:03:02 | [WARN]  | Offboard skip (user not found): burak.yilmaz
-2025-12-21 16:03:02 | [INFO]  | Processing terminated status for: sude.kazanci
-2025-12-21 16:03:02 | [WARN]  | Offboard skip (user not found): sude.kazanci
-2025-12-21 16:03:02 | [OK]    | Terminated status processing complete
-2025-12-21 16:03:02 | [INFO]  | Generating manager update report...
-2025-12-21 16:03:02 | [OK]    | Manager report generated: /workspaces/CMPE341OS_Project/output/reports/manager_update_20251221_160302.txt
-2025-12-21 16:03:02 | [INFO]  | Sending email report to janabarazi@stu.khas.edu.tr...
-2025-12-21 16:03:02 | [WARN]  | mail command not available - skipping email
-2025-12-21 16:03:02 | [WARN]  | Install mailutils: sudo apt-get install mailutils
-2025-12-21 16:03:02 | [INFO]  | Updating snapshot file...
-2025-12-21 16:03:02 | [OK]    | Snapshot updated: /workspaces/CMPE341OS_Project/output/last_employees.csv
-2025-12-21 16:03:02 | [INFO]  | Cleaning up temporary files...
-2025-12-21 16:03:02 | [OK]    | Temporary files cleaned up
-2025-12-21 16:03:02 | [INFO]  | END lifecycle sync
+2025-12-21 16:42:18 | [INFO]  | START lifecycle sync | file=employees.csv | dry_run=0
+2025-12-21 16:42:18 | [INFO]  | Detecting changes between current and previous employee data...
+2025-12-21 16:42:18 | [INFO]  | Normalizing CSV: /workspaces/CMPE341OS_Project/employees.csv
+2025-12-21 16:42:18 | [OK]    | CSV normalized and sorted
+2025-12-21 16:42:18 | [INFO]  | Normalizing CSV: /workspaces/CMPE341OS_Project/output/last_employees.csv
+2025-12-21 16:42:18 | [OK]    | CSV normalized and sorted
+2025-12-21 16:42:18 | [OK]    | Change detection complete
+2025-12-21 16:42:18 | [INFO]  | Processing onboarding for new employees...
+2025-12-21 16:42:18 | [INFO]  | No new employees to onboard
+2025-12-21 16:42:18 | [INFO]  | Processing offboarding for removed employees...
+2025-12-21 16:42:18 | [INFO]  | No employees to offboard (removed)
+2025-12-21 16:42:18 | [INFO]  | Processing employees with terminated status...
+2025-12-21 16:42:18 | [INFO]  | Processing terminated status for: burak.yilmaz
+2025-12-21 16:42:18 | [WARN]  | Offboard skip (user not found): burak.yilmaz
+2025-12-21 16:42:18 | [INFO]  | Processing terminated status for: sude.kazanci
+2025-12-21 16:42:18 | [WARN]  | Offboard skip (user not found): sude.kazanci
+2025-12-21 16:42:18 | [OK]    | Terminated status processing complete
+2025-12-21 16:42:18 | [INFO]  | Generating manager update report...
+2025-12-21 16:42:18 | [OK]    | Manager report generated: /workspaces/CMPE341OS_Project/output/reports/manager_update_20251221_164218.txt
+2025-12-21 16:42:18 | [INFO]  | Sending email report to janabarazi@stu.khas.edu.tr...
+2025-12-21 16:42:18 | [WARN]  | mail command not available - skipping email
+2025-12-21 16:42:18 | [WARN]  | Install mailutils: sudo apt-get install mailutils
+2025-12-21 16:42:18 | [INFO]  | Updating snapshot file...
+2025-12-21 16:42:18 | [OK]    | Snapshot updated: /workspaces/CMPE341OS_Project/output/last_employees.csv
+2025-12-21 16:42:18 | [INFO]  | Cleaning up temporary files...
+2025-12-21 16:42:18 | [OK]    | Temporary files cleaned up
+2025-12-21 16:42:18 | [INFO]  | END lifecycle sync
