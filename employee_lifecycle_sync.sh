@@ -159,6 +159,7 @@ detect_changes() {
         log_warning "No previous snapshot found - treating all employees as new"
         cp "$TEMP_CURRENT" "$TEMP_ADDED"
         : > "$TEMP_REMOVED"
+        : > "$TEMP_TERMINATED"
         return 0
     fi
 
@@ -168,24 +169,41 @@ detect_changes() {
     # Prepare empty outputs
     : > "$TEMP_ADDED"
     : > "$TEMP_REMOVED"
+    : > "$TEMP_TERMINATED"
 
     # -----------------------------
     # ADDED = ID in current but NOT in snapshot
     # -----------------------------
-    while IFS=',' read -r curr_id _; do
+    while IFS=',' read -r curr_id curr_user curr_name curr_dept curr_status; do
         if ! grep -q "^$curr_id," "$TEMP_PREVIOUS"; then
-            grep "^$curr_id," "$TEMP_CURRENT" >> "$TEMP_ADDED"
+            echo "$curr_id,$curr_user,$curr_name,$curr_dept,$curr_status" >> "$TEMP_ADDED"
         fi
     done < "$TEMP_CURRENT"
 
     # -----------------------------
     # REMOVED = ID in snapshot but NOT in current
     # -----------------------------
-    while IFS=',' read -r prev_id _; do
+    while IFS=',' read -r prev_id prev_user prev_name prev_dept prev_status; do
         if ! grep -q "^$prev_id," "$TEMP_CURRENT"; then
-            grep "^$prev_id," "$TEMP_PREVIOUS" >> "$TEMP_REMOVED"
+            echo "$prev_id,$prev_user,$prev_name,$prev_dept,$prev_status" >> "$TEMP_REMOVED"
         fi
     done < "$TEMP_PREVIOUS"
+
+    # -----------------------------
+    # TERMINATED = status changed active -> terminated
+    # -----------------------------
+    awk -F',' '
+        NR==FNR {
+            prev_status[$1]=$5
+            next
+        }
+        {
+            if ($1 in prev_status &&
+                prev_status[$1]=="active" &&
+                $5=="terminated")
+                print
+        }
+    ' "$TEMP_PREVIOUS" "$TEMP_CURRENT" > "$TEMP_TERMINATED"
 
     log_success "Change detection complete"
 }
@@ -360,7 +378,7 @@ offboard_employee() {
     
     # Only offboard if status is terminated
     if [[ "$status" != "terminated" ]]; then
-        log_warning "Skipping onboarding for $username (status: $status)"
+        log_warning "Skipping offboarding for $username (status: $status)"
         return 0
     fi
     
@@ -378,25 +396,25 @@ offboard_employee() {
     # Lock account
     lock_user_account "$username"
     
-    ((REMOVED_COUNT++))
     log_success "Offboarding complete for $username"
 }
 
 process_offboarding() {
     log "Processing offboarding for removed employees..."
-    
+
     if [[ ! -s "$TEMP_REMOVED" ]]; then
         log "No employees to offboard (removed)"
         return 0
     fi
-    
-    # Read each removed employee and offboard
+
     while IFS=',' read -r employee_id username name_surname department status; do
         offboard_employee "$employee_id" "$username" "$name_surname" "$department"
+        ((REMOVED_COUNT++))
     done < "$TEMP_REMOVED"
-    
+
     log_success "Offboarding processing complete"
 }
+
 
 process_terminated_status() {
     log "Processing employees with terminated status..."
