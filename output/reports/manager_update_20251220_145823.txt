@@ -1,0 +1,13 @@
+Manager Update Report
+Timestamp: Sat Dec 20 14:58:23 UTC 2025
+==================================
+
+New Employees:
+None
+
+Removed Employees:
+None
+
+Terminated Employees:
+10006,burak.yilmaz,Burak Yılmaz,Dev,terminated
+10010,sude.kazanci,Sude Kazancı,Computer,terminated

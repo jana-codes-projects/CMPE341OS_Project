@@ -1,90 +1,40 @@
-[2025-12-19 09:02:26] Employee lifecycle sync started
-[2025-12-19 09:02:26] First run detected – onboarding all active employees
-[2025-12-19 09:02:26] Initial snapshot saved to reports/last_employees.csv
-[2025-12-19 09:02:26] Script finished (first run)
-[2025-12-19 09:18:29] Employee lifecycle sync started
-[2025-12-19 09:18:29] Created department group: Data
-[2025-12-19 09:18:29] Created user account: ayse.aydin
-[2025-12-19 09:18:29] Added ayse.aydin to group Data
-[2025-12-19 09:18:29] Created department group: Dev
-[2025-12-19 09:18:29] Created user account: mehmet.kaya
-[2025-12-19 09:18:29] Added mehmet.kaya to group Dev
-[2025-12-19 09:18:29] Created department group: HR
-[2025-12-19 09:18:29] Created user account: elif.demir
-[2025-12-19 09:18:29] Added elif.demir to group HR
-[2025-12-19 09:18:29] Created department group: Marketing
-[2025-12-19 09:18:29] Created user account: can.ozkan
-[2025-12-19 09:18:29] Added can.ozkan to group Marketing
-[2025-12-19 09:18:29] Created department group: Finance
-[2025-12-19 09:18:29] Created user account: zeynep.sari
-[2025-12-19 09:18:29] Added zeynep.sari to group Finance
-[2025-12-19 09:18:29] Created user account: burak.yilmaz
-[2025-12-19 09:18:29] Added burak.yilmaz to group Dev
-[2025-12-19 09:18:29] Created user account: deniz.arslan
-[2025-12-19 09:18:29] Added deniz.arslan to group Data
-[2025-12-19 09:18:29] Created department group: Computer
-[2025-12-19 09:18:29] Created user account: jana.barazi
-[2025-12-19 09:18:29] Added jana.barazi to group Computer
-[2025-12-19 09:18:29] Created user account: muhammad.ahmad
-[2025-12-19 09:18:29] Added muhammad.ahmad to group Computer
-[2025-12-19 09:18:29] Created user account: sude.kazanci
-[2025-12-19 09:18:29] Added sude.kazanci to group Computer
-[2025-12-19 09:18:29] Archived /home/ayse.aydin to ./output/archives/ayse.aydin_20251219_091829.tar.gz
-[2025-12-19 09:18:29] Locked account for user: ayse.aydin
-[2025-12-19 09:18:30] Archived /home/mehmet.kaya to ./output/archives/mehmet.kaya_20251219_091829.tar.gz
-[2025-12-19 09:18:30] Locked account for user: mehmet.kaya
-[2025-12-19 09:18:30] Archived /home/elif.demir to ./output/archives/elif.demir_20251219_091829.tar.gz
-[2025-12-19 09:18:30] Locked account for user: elif.demir
-[2025-12-19 09:18:30] Archived /home/can.ozkan to ./output/archives/can.ozkan_20251219_091829.tar.gz
-[2025-12-19 09:18:30] Locked account for user: can.ozkan
-[2025-12-19 09:18:30] Archived /home/zeynep.sari to ./output/archives/zeynep.sari_20251219_091829.tar.gz
-[2025-12-19 09:18:30] Locked account for user: zeynep.sari
-[2025-12-19 09:18:30] Archived /home/burak.yilmaz to ./output/archives/burak.yilmaz_20251219_091829.tar.gz
-[2025-12-19 09:18:30] Locked account for user: burak.yilmaz
-[2025-12-19 09:18:30] Archived /home/deniz.arslan to ./output/archives/deniz.arslan_20251219_091829.tar.gz
-[2025-12-19 09:18:30] Locked account for user: deniz.arslan
-[2025-12-19 09:18:30] Archived /home/jana.barazi to ./output/archives/jana.barazi_20251219_091829.tar.gz
-[2025-12-19 09:18:30] Locked account for user: jana.barazi
-[2025-12-19 09:18:30] Archived /home/muhammad.ahmad to ./output/archives/muhammad.ahmad_20251219_091829.tar.gz
-[2025-12-19 09:18:30] Locked account for user: muhammad.ahmad
-[2025-12-19 09:18:30] Archived /home/sude.kazanci to ./output/archives/sude.kazanci_20251219_091829.tar.gz
-[2025-12-19 09:18:30] Locked account for user: sude.kazanci
-[2025-12-19 09:18:30] Snapshot updated
-[2025-12-19 09:18:30] Employee lifecycle sync completed successfully
-[2025-12-19 09:23:29] Employee lifecycle sync started
-[2025-12-19 09:23:29] Added ayse.aydin to group Data
-[2025-12-19 09:23:29] Added mehmet.kaya to group Dev
-[2025-12-19 09:23:29] Added elif.demir to group HR
-[2025-12-19 09:23:29] Added can.ozkan to group Marketing
-[2025-12-19 09:23:29] Added zeynep.sari to group Finance
-[2025-12-19 09:23:29] Added burak.yilmaz to group Dev
-[2025-12-19 09:23:29] Added deniz.arslan to group Data
-[2025-12-19 09:23:29] Added jana.barazi to group Computer
-[2025-12-19 09:23:29] Added muhammad.ahmad to group Computer
-[2025-12-19 09:23:29] Added sude.kazanci to group Computer
-[2025-12-19 09:23:29] Archived /home/ayse.aydin to ./output/archives/ayse.aydin_20251219_092329.tar.gz
-[2025-12-19 09:23:29] Locked account for user: ayse.aydin
-[2025-12-19 09:23:29] Archived /home/mehmet.kaya to ./output/archives/mehmet.kaya_20251219_092329.tar.gz
-[2025-12-19 09:23:29] Locked account for user: mehmet.kaya
-[2025-12-19 09:23:29] Archived /home/elif.demir to ./output/archives/elif.demir_20251219_092329.tar.gz
-[2025-12-19 09:23:29] Locked account for user: elif.demir
-[2025-12-19 09:23:29] Archived /home/can.ozkan to ./output/archives/can.ozkan_20251219_092329.tar.gz
-[2025-12-19 09:23:29] Locked account for user: can.ozkan
-[2025-12-19 09:23:29] Archived /home/zeynep.sari to ./output/archives/zeynep.sari_20251219_092329.tar.gz
-[2025-12-19 09:23:29] Locked account for user: zeynep.sari
-[2025-12-19 09:23:29] Archived /home/burak.yilmaz to ./output/archives/burak.yilmaz_20251219_092329.tar.gz
-[2025-12-19 09:23:29] Locked account for user: burak.yilmaz
-[2025-12-19 09:23:29] Archived /home/deniz.arslan to ./output/archives/deniz.arslan_20251219_092329.tar.gz
-[2025-12-19 09:23:29] Locked account for user: deniz.arslan
-[2025-12-19 09:23:29] Archived /home/jana.barazi to ./output/archives/jana.barazi_20251219_092329.tar.gz
-[2025-12-19 09:23:29] Locked account for user: jana.barazi
-[2025-12-19 09:23:29] Archived /home/muhammad.ahmad to ./output/archives/muhammad.ahmad_20251219_092329.tar.gz
-[2025-12-19 09:23:29] Locked account for user: muhammad.ahmad
-[2025-12-19 09:23:29] Archived /home/sude.kazanci to ./output/archives/sude.kazanci_20251219_092329.tar.gz
-[2025-12-19 09:23:29] Locked account for user: sude.kazanci
-[2025-12-19 09:23:29] Archived /home/burak.yilmaz to ./output/archives/burak.yilmaz_20251219_092329.tar.gz
-[2025-12-19 09:23:29] Locked account for user: burak.yilmaz
-[2025-12-19 09:23:29] Archived /home/sude.kazanci to ./output/archives/sude.kazanci_20251219_092329.tar.gz
-[2025-12-19 09:23:29] Locked account for user: sude.kazanci
-[2025-12-19 09:23:29] Snapshot updated
-[2025-12-19 09:23:29] Employee lifecycle sync completed successfully
+[2025-12-20 14:40:12] Employee lifecycle sync started
+[2025-12-20 14:40:12] Snapshot updated
+[2025-12-20 14:40:12] Employee lifecycle sync completed successfully
+[2025-12-20 14:44:20] Employee lifecycle sync started
+[2025-12-20 14:44:20] Created department group: Dev
+[2025-12-20 14:44:20] Created user account: Ahmet Yılmaz (ahmet.yilmaz)
+[2025-12-20 14:44:20] Added Ahmet Yılmaz (ahmet.yilmaz) to group Dev
+[2025-12-20 14:44:20] Snapshot updated
+[2025-12-20 14:44:20] Employee lifecycle sync completed successfully
+[2025-12-20 14:55:20] Employee lifecycle sync started
+[2025-12-20 14:55:20] First run detected – onboarding all active employees
+[2025-12-20 14:55:20] Created department group: Data
+[2025-12-20 14:55:20] Created user account: Ayşe Aydın (ayse.aydin)
+[2025-12-20 14:55:20] Added Ayşe Aydın (ayse.aydin) to group Data
+[2025-12-20 14:55:20] Created department group: Dev
+[2025-12-20 14:55:20] Created user account: Mehmet Kaya (mehmet.kaya)
+[2025-12-20 14:55:20] Added Mehmet Kaya (mehmet.kaya) to group Dev
+[2025-12-20 14:55:20] Created department group: HR
+[2025-12-20 14:55:20] Created user account: Elif Demir (elif.demir)
+[2025-12-20 14:55:20] Added Elif Demir (elif.demir) to group HR
+[2025-12-20 14:55:20] Created department group: Finance
+[2025-12-20 14:55:20] Created user account: Zeynep Sarı (zeynep.sari)
+[2025-12-20 14:55:20] Added Zeynep Sarı (zeynep.sari) to group Finance
+[2025-12-20 14:55:20] Created user account: Deniz Arslan (deniz.arslan)
+[2025-12-20 14:55:20] Added Deniz Arslan (deniz.arslan) to group Data
+[2025-12-20 14:55:20] Created department group: Computer
+[2025-12-20 14:55:20] Created user account: Jana Albarazi (jana.barazi)
+[2025-12-20 14:55:20] Added Jana Albarazi (jana.barazi) to group Computer
+[2025-12-20 14:55:20] Created user account: Muhammad Ahmad (muhammad.ahmad)
+[2025-12-20 14:55:20] Added Muhammad Ahmad (muhammad.ahmad) to group Computer
+[2025-12-20 14:55:20] Created user account: Ahmet Yılmaz (ahmet.yilmaz)
+[2025-12-20 14:55:20] Added Ahmet Yılmaz (ahmet.yilmaz) to group Dev
+[2025-12-20 14:55:20] Initial snapshot saved to reports/last_employees.csv
+[2025-12-20 14:55:20] Employee lifecycle sync completed successfully
+[2025-12-20 14:58:23] Employee lifecycle sync started
+[2025-12-20 14:58:23] Snapshot updated
+[2025-12-20 14:58:23] Employee lifecycle sync completed successfully
+[2025-12-21 11:55:30] Employee lifecycle sync started
+[2025-12-21 11:55:31] Snapshot updated
+[2025-12-21 11:55:31] Employee lifecycle sync completed successfully

@@ -1,0 +1,13 @@
+Manager Update Report
+Timestamp: Sat Dec 20 14:44:20 UTC 2025
+==================================
+
+New Employees:
+10011,ahmet.yilmaz,Ahmet Yılmaz,Dev,active
+
+Removed Employees:
+10004,can.ozkan,Can Özkan,Marketing,active
+
+Terminated Employees:
+10006,burak.yilmaz,Burak Yılmaz,Dev,terminated
+10010,sude.kazanci,Sude Kazancı,Computer,terminated
