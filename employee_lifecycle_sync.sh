@@ -40,7 +40,7 @@ TEMP_ADDED="$TEMP_DIR/added.csv"
 TEMP_REMOVED="$TEMP_DIR/removed.csv"
 
 # Manager email (can be configured)
-MANAGER_EMAIL="${MANAGER_EMAIL:-your.email@std.yeditepe.edu.tr}"
+MANAGER_EMAIL="${MANAGER_EMAIL:-Muhammadahmad@stu.khas.edu.tr}"
 
 ################################################################################
 # LOGGING FUNCTIONS
