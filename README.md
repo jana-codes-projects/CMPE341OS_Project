@@ -29,7 +29,7 @@ CMPE341OS_Project/
     ├── archives/
     ├── logs/
     │   └── lifecycle_sync.log
-    └── reports/
+    ├── reports/
     │   └── manager_update_<timestamp>.txt
     └── last_employees.csv
 ```
