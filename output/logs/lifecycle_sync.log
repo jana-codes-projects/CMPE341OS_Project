@@ -1,0 +1,101 @@
+2025-12-21 17:04:50 | [INFO]  | START lifecycle sync | file=employees.csv | dry_run=0
+2025-12-21 17:04:50 | [INFO]  | Detecting changes between current and previous employee data...
+2025-12-21 17:04:50 | [INFO]  | Normalizing CSV: /workspaces/CMPE341OS_Project/employees.csv
+2025-12-21 17:04:50 | [OK]    | CSV normalized and sorted
+2025-12-21 17:04:50 | [WARN]  | No previous snapshot found - treating all employees as new
+2025-12-21 17:04:50 | [INFO]  | Processing onboarding for new employees...
+2025-12-21 17:04:50 | [INFO]  | Onboarding employee: ayse.aydin (Ayşe Aydın) - Department: data
+2025-12-21 17:04:50 | [RUN]   | groupadd "data"
+2025-12-21 17:04:50 | [OK]    | Group created: data
+2025-12-21 17:04:50 | [RUN]   | useradd -m "ayse.aydin"
+2025-12-21 17:04:50 | [OK]    | User created: ayse.aydin
+2025-12-21 17:04:50 | [RUN]   | usermod -aG "data" "ayse.aydin"
+2025-12-21 17:04:50 | [OK]    | Added ayse.aydin to group data
+2025-12-21 17:04:50 | [OK]    | Onboarded: ayse.aydin
+2025-12-21 17:04:50 | [INFO]  | Onboarding employee: mehmet.kaya (Mehmet Kaya) - Department: dev
+2025-12-21 17:04:50 | [RUN]   | groupadd "dev"
+2025-12-21 17:04:50 | [OK]    | Group created: dev
+2025-12-21 17:04:50 | [RUN]   | useradd -m "mehmet.kaya"
+2025-12-21 17:04:50 | [OK]    | User created: mehmet.kaya
+2025-12-21 17:04:50 | [RUN]   | usermod -aG "dev" "mehmet.kaya"
+2025-12-21 17:04:51 | [OK]    | Added mehmet.kaya to group dev
+2025-12-21 17:04:51 | [OK]    | Onboarded: mehmet.kaya
+2025-12-21 17:04:51 | [INFO]  | Onboarding employee: elif.demir (Elif Demir) - Department: hr
+2025-12-21 17:04:51 | [RUN]   | groupadd "hr"
+2025-12-21 17:04:51 | [OK]    | Group created: hr
+2025-12-21 17:04:51 | [RUN]   | useradd -m "elif.demir"
+2025-12-21 17:04:51 | [OK]    | User created: elif.demir
+2025-12-21 17:04:51 | [RUN]   | usermod -aG "hr" "elif.demir"
+2025-12-21 17:04:51 | [OK]    | Added elif.demir to group hr
+2025-12-21 17:04:51 | [OK]    | Onboarded: elif.demir
+2025-12-21 17:04:51 | [INFO]  | Onboarding employee: can.ozkan (Can Özkan) - Department: marketing
+2025-12-21 17:04:51 | [RUN]   | groupadd "marketing"
+2025-12-21 17:04:51 | [OK]    | Group created: marketing
+2025-12-21 17:04:51 | [RUN]   | useradd -m "can.ozkan"
+2025-12-21 17:04:51 | [OK]    | User created: can.ozkan
+2025-12-21 17:04:51 | [RUN]   | usermod -aG "marketing" "can.ozkan"
+2025-12-21 17:04:51 | [OK]    | Added can.ozkan to group marketing
+2025-12-21 17:04:51 | [OK]    | Onboarded: can.ozkan
+2025-12-21 17:04:51 | [INFO]  | Onboarding employee: zeynep.sari (Zeynep Sarı) - Department: finance
+2025-12-21 17:04:51 | [RUN]   | groupadd "finance"
+2025-12-21 17:04:51 | [OK]    | Group created: finance
+2025-12-21 17:04:51 | [RUN]   | useradd -m "zeynep.sari"
+2025-12-21 17:04:51 | [OK]    | User created: zeynep.sari
+2025-12-21 17:04:51 | [RUN]   | usermod -aG "finance" "zeynep.sari"
+2025-12-21 17:04:51 | [OK]    | Added zeynep.sari to group finance
+2025-12-21 17:04:51 | [OK]    | Onboarded: zeynep.sari
+2025-12-21 17:04:51 | [WARN]  | Skipping onboarding for burak.yilmaz (status: terminated)
+2025-12-21 17:04:51 | [INFO]  | Onboarding employee: deniz.arslan (Deniz Arslan) - Department: data
+2025-12-21 17:04:51 | [RUN]   | useradd -m "deniz.arslan"
+2025-12-21 17:04:51 | [OK]    | User created: deniz.arslan
+2025-12-21 17:04:51 | [RUN]   | usermod -aG "data" "deniz.arslan"
+2025-12-21 17:04:51 | [OK]    | Added deniz.arslan to group data
+2025-12-21 17:04:51 | [OK]    | Onboarded: deniz.arslan
+2025-12-21 17:04:52 | [INFO]  | Onboarding employee: jana.barazi (Jana Albarazi) - Department: computer
+2025-12-21 17:04:52 | [RUN]   | groupadd "computer"
+2025-12-21 17:04:52 | [OK]    | Group created: computer
+2025-12-21 17:04:52 | [RUN]   | useradd -m "jana.barazi"
+2025-12-21 17:04:52 | [OK]    | User created: jana.barazi
+2025-12-21 17:04:52 | [RUN]   | usermod -aG "computer" "jana.barazi"
+2025-12-21 17:04:52 | [OK]    | Added jana.barazi to group computer
+2025-12-21 17:04:52 | [OK]    | Onboarded: jana.barazi
+2025-12-21 17:04:52 | [INFO]  | Onboarding employee: muhammad.ahmad (Muhammad Ahmad) - Department: computer
+2025-12-21 17:04:52 | [RUN]   | useradd -m "muhammad.ahmad"
+2025-12-21 17:04:52 | [OK]    | User created: muhammad.ahmad
+2025-12-21 17:04:52 | [RUN]   | usermod -aG "computer" "muhammad.ahmad"
+2025-12-21 17:04:52 | [OK]    | Added muhammad.ahmad to group computer
+2025-12-21 17:04:52 | [OK]    | Onboarded: muhammad.ahmad
+2025-12-21 17:04:52 | [WARN]  | Skipping onboarding for sude.kazanci (status: terminated)
+2025-12-21 17:04:52 | [OK]    | Onboarding processing complete
+2025-12-21 17:04:52 | [INFO]  | Processing offboarding for removed employees...
+2025-12-21 17:04:52 | [INFO]  | No employees to offboard (removed)
+2025-12-21 17:04:52 | [INFO]  | Processing employees with terminated status...
+2025-12-21 17:04:52 | [INFO]  | Processing terminated status for: burak.yilmaz
+2025-12-21 17:04:52 | [INFO]  | Offboarding employee: burak.yilmaz (Burak Yılmaz)
+2025-12-21 17:04:52 | [RUN]   | useradd -m "burak.yilmaz"
+2025-12-21 17:04:52 | [OK]    | User created: burak.yilmaz
+2025-12-21 17:04:52 | [RUN]   | tar -czf "/workspaces/CMPE341OS_Project/output/archives/burak.yilmaz_20251221_170452.tar.gz" "/home/burak.yilmaz"
+2025-12-21 17:04:52 | [OK]    | Archived home for burak.yilmaz to /workspaces/CMPE341OS_Project/output/archives/burak.yilmaz_20251221_170452.tar.gz
+2025-12-21 17:04:52 | [RUN]   | usermod -L "burak.yilmaz"
+2025-12-21 17:04:52 | [OK]    | Locked account: burak.yilmaz
+2025-12-21 17:04:52 | [OK]    | Offboarding complete for burak.yilmaz
+2025-12-21 17:04:52 | [INFO]  | Processing terminated status for: sude.kazanci
+2025-12-21 17:04:52 | [INFO]  | Offboarding employee: sude.kazanci (Sude Kazancı)
+2025-12-21 17:04:52 | [RUN]   | useradd -m "sude.kazanci"
+2025-12-21 17:04:52 | [OK]    | User created: sude.kazanci
+2025-12-21 17:04:52 | [RUN]   | tar -czf "/workspaces/CMPE341OS_Project/output/archives/sude.kazanci_20251221_170452.tar.gz" "/home/sude.kazanci"
+2025-12-21 17:04:52 | [OK]    | Archived home for sude.kazanci to /workspaces/CMPE341OS_Project/output/archives/sude.kazanci_20251221_170452.tar.gz
+2025-12-21 17:04:52 | [RUN]   | usermod -L "sude.kazanci"
+2025-12-21 17:04:52 | [OK]    | Locked account: sude.kazanci
+2025-12-21 17:04:52 | [OK]    | Offboarding complete for sude.kazanci
+2025-12-21 17:04:52 | [OK]    | Terminated status processing complete
+2025-12-21 17:04:52 | [INFO]  | Generating manager update report...
+2025-12-21 17:04:52 | [OK]    | Manager report generated: /workspaces/CMPE341OS_Project/output/reports/manager_update_20251221_170452.txt
+2025-12-21 17:04:52 | [INFO]  | Sending email report to janabarazi@stu.khas.edu.tr...
+2025-12-21 17:04:52 | [WARN]  | mail command not available - skipping email
+2025-12-21 17:04:52 | [WARN]  | Install mailutils: sudo apt-get install mailutils
+2025-12-21 17:04:52 | [INFO]  | Updating snapshot file...
+2025-12-21 17:04:52 | [OK]    | Snapshot updated: /workspaces/CMPE341OS_Project/output/last_employees.csv
+2025-12-21 17:04:52 | [INFO]  | Cleaning up temporary files...
+2025-12-21 17:04:52 | [OK]    | Temporary files cleaned up
+2025-12-21 17:04:52 | [INFO]  | END lifecycle sync

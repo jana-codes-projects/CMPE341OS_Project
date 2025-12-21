@@ -1,0 +1,36 @@
+================================================================================
+                            Manager Employee Update
+================================================================================
+Timestamp: 2025-12-21 17:04:52
+Mode: LIVE
+
+Summary
+-------
+Added employees (active)  : 8
+Removed employees         : 2
+Offboarded by status      : 2
+
+Added (username, department)
+----------------------------
+ayse.aydin, data
+mehmet.kaya, dev
+elif.demir, hr
+can.ozkan, marketing
+zeynep.sari, finance
+deniz.arslan, data
+jana.barazi, computer
+muhammad.ahmad, computer
+
+Terminated processed (username, department)
+-------------------------------------------
+burak.yilmaz, dev
+sude.kazanci, computer
+
+
+Artifacts
+---------
+Archives folder: /workspaces/CMPE341OS_Project/output/archives
+Snapshot file  : /workspaces/CMPE341OS_Project/output/last_employees.csv
+Log file       : /workspaces/CMPE341OS_Project/output/logs/lifecycle_sync.log
+
+================================================================================

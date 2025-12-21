@@ -264,30 +264,26 @@ onboard_employee() {
     local department="$4"
     local status="$5"
     
-    log "Ensuring user exists: $username ($name_surname)"
-
+    # Only onboard if status is active
+    if [[ "$status" != "active" ]]; then
+        log_warning "Skipping onboarding for $username (status: $status)"
+        return 0
+    fi
+    
+    log "Onboarding employee: $username ($name_surname) - Department: $department"
+    
     # Ensure department group exists
     ensure_group_exists "$department"
-
-    # ALWAYS create user if missing
-    if ! id "$username" &>/dev/null; then
-        create_user_account "$username"
-        log_success "Created: $username"
-    else
-        log "User already exists: $username"
-    fi
-
-    # Ensure group membership
+    
+    # Create user account
+    create_user_account "$username"
+    
+    # Add user to department group
     add_user_to_group "$username" "$department"
+    
+    ((ADDED_COUNT++))
+    log_success "Onboarded: $username"
 
-    # Count only active users as onboarding
-    if [[ "$status" == "active" ]]; then
-        log "Onboarding employee: $username ($name_surname) - Department: $department"
-        ((ADDED_COUNT++))
-        log_success "Onboarded: $username"
-    else
-        log_warning "User created but status is $status: $username"
-    fi
 }
 
 process_onboarding() {
@@ -362,13 +358,19 @@ offboard_employee() {
     local name_surname="$3"
     local department="$4"
     
-    # Check if user exists before offboarding
-    if ! id "$username" &>/dev/null; then
-        log_warning "Offboard skip (user not found): $username"
+    # Only offboard if status is terminated
+    if [[ "$status" != "terminated" ]]; then
+        log_warning "Skipping onboarding for $username (status: $status)"
         return 0
     fi
     
     log "Offboarding employee: $username ($name_surname)"
+
+    # Ensure department group exists
+    ensure_group_exists "$department"
+    
+    # Create user account
+    create_user_account "$username"
     
     # Archive home directory
     archive_user_home "$username"
