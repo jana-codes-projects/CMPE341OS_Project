@@ -1,262 +1,257 @@
-# Employee Lifecycle Management Automation
+# Employee Lifecycle Sync Script
 
-**CMPE341 – Operating Systems (Linux Mini Project)**
+## Overview
 
----
+`employee_lifecycle_sync.sh` is a Bash automation script designed to manage the **employee lifecycle on a Linux system** based on a CSV file.
+It synchronizes system users with employee records by handling:
 
-## Project Overview
-
-This project implements an automated employee lifecycle management system using Bash scripting on Linux.
-
-The script synchronizes Linux system user accounts with an HR-maintained CSV file and automatically manages:
-
-* Employee onboarding
-* Employee offboarding
-* Account termination
+* Onboarding of new active employees
+* Offboarding of removed employees
+* Offboarding of employees whose status changes to `terminated`
+* Group management based on departments
 * Home directory archiving
-* Logging and reporting
-* Email notifications to management
+* Logging, reporting, and email notifications
 
-The solution is idempotent, supports change detection between runs, and maintains a snapshot of the previous employee state.
+The script is intended for system administration and OS coursework environments.
 
 ---
 
-## Project Structure
+## Features
+
+* Parses and normalizes employee CSV files
+* Detects added and removed employees using employee IDs
+* Creates Linux users and department groups
+* Skips onboarding for non-active employees
+* Ensures terminated users are offboarded even if they were never onboarded
+* Archives home directories before locking accounts
+* Generates detailed reports for managers
+* Sends email summaries using `mail`
+* Maintains a snapshot of the previous run
+* Cleans logs and reports on each run
+
+---
+
+## CSV File Format
+
+The script expects a CSV file with the following columns:
 
 ```
-CMPE341OS_Project/
+Employee_id,Username,Full_Name,Department,Status
+```
+
+### Example
+
+```
+10012,pheobe.buffay,Pheobe Buffay,Massuse,Active
+```
+
+### Notes
+
+* Header row is optional
+* `Employee_id` must be numeric
+* `Username`, `Department`, and `Status` are case-insensitive
+* Valid statuses:
+
+  * `active`
+  * `terminated`
+
+---
+
+## Directory Structure
+
+The script automatically creates the following structure:
+
+```
+.
+├── employee_lifecycle_sync.sh
 ├── employees.csv
-├── proj_script.sh
-├── README.md
-└── output/
-    ├── archives/
-    ├── logs/
-    │   └── lifecycle_sync.log
-    ├── reports/
-    │   └── manager_update_<timestamp>.txt
-    └── last_employees.csv
+├── output/
+│   ├── logs/
+│   │   └── lifecycle_sync.log
+│   ├── reports/
+│   │   └── manager_update_YYYYMMDD_HHMMSS.txt
+│   ├── archives/
+│   │   └── username_timestamp.tar.gz
+│   └── last_employees.csv
+└── temp/
 ```
 
-Note:
-The `output/` directory and all required subdirectories are automatically created by the script if they do not exist.
+* `last_employees.csv` is the snapshot used for change detection
+* `temp/` is removed at the end of each run
 
 ---
 
-## Input File: `employees.csv`
+## Prerequisites
 
-The input CSV must contain exactly five fields in the following order:
+### System Requirements
 
+* Linux (Ubuntu recommended)
+* Root or sudo privileges
+
+### Required Commands
+
+The script checks for the following tools:
+
+* awk
+* sort
+* comm
+* tar
+* mail
+* useradd
+* groupadd
+* usermod
+* getent
+
+### Email Support
+
+To enable email reports:
+
+```bash
+sudo apt update
+sudo apt install bsd-mailx
 ```
-employee_id,username,full_name,department,status
-```
 
-### Example CSV
-
-```csv
-employee_id,username,full_name,department,status
-10001,ayse.aydin,Ayşe Aydın,Data,Active
-10002,mehmet.kaya,Mehmet Kaya,Dev,Terminated
-10003,elif.demir,Elif Demir,HR,Active
-```
-
-### Field Descriptions
-
-| Field       | Description                                 |
-| ----------- | ------------------------------------------- |
-| employee_id | Unique numeric employee identifier          |
-| username    | Linux system username                       |
-| full_name   | Employee full name                          |
-| department  | Department name (used as Linux group name)  |
-| status      | `active` or `terminated` (case-insensitive) |
+Postfix can be left in default configuration for demo purposes.
 
 ---
 
-## Script Features
+## Usage
 
-### CSV Normalization
+### Basic Run
 
-The script automatically:
-
-* Skips CSV headers
-* Trims leading and trailing whitespace
-* Converts usernames, departments, and status fields to lowercase
-* Sorts records by employee ID
-
-This ensures reliable change detection across script executions.
-
----
-
-### Onboarding (Active Employees)
-
-For new employees marked as `active`, the script:
-
-* Creates the department group if it does not exist
-* Creates the user account if it does not exist
-* Adds the user to the department group
-* Logs all actions
-
----
-
-### Offboarding (Removed Employees)
-
-If an employee is removed from the CSV file, the script:
-
-* Archives the user’s home directory as a `.tar.gz` file
-* Locks the user account
-* Preserves system data for auditing purposes
-
----
-
-### Termination Handling
-
-If an employee exists in the CSV but has a status of `terminated`, the script:
-
-* Archives the user’s home directory
-* Locks the user account
-* Reports the termination separately
-
----
-
-### Snapshot-Based Change Detection
-
-The script stores the previous normalized employee state in:
-
-```
-output/last_employees.csv
+```bash
+sudo bash employee_lifecycle_sync.sh
 ```
 
-Each execution compares the current CSV with the previous snapshot to detect:
+### Specify a CSV File
 
-* Newly added employees
+```bash
+sudo bash employee_lifecycle_sync.sh /path/to/employees.csv
+```
+
+### Environment Variables
+
+You can override the manager email:
+
+```bash
+export MANAGER_EMAIL="manager@example.com"
+sudo bash employee_lifecycle_sync.sh
+```
+
+---
+
+## How the Script Works
+
+### 1. Setup Phase
+
+* Creates output, logs, reports, archives, and temp directories
+* Clears the log file
+* Deletes old report files
+
+### 2. Normalization
+
+* Trims whitespace
+* Converts usernames, departments, and statuses to lowercase
+* Sorts entries by `Employee_id`
+
+### 3. Change Detection
+
+* **Added employees**: IDs present in current CSV but not in snapshot
+* **Removed employees**: IDs present in snapshot but not in current CSV
+* First run treats all employees as new
+
+### 4. Onboarding Logic
+
+* Only employees with `status=active` are onboarded
+* Actions:
+
+  * Create department group if missing
+  * Create user account if missing
+  * Add user to department group
+
+### 5. Offboarding Logic
+
+Offboarding happens in two cases:
+
+#### A. Removed Employees
+
+Employees missing from the current CSV:
+
+* User is created if missing (to allow cleanup)
+* Home directory archived
+* Account locked
+
+#### B. Terminated Employees
+
+Employees still in CSV but with `status=terminated`:
+
+* User is created if missing
+* Home directory archived
+* Account locked
+
+This guarantees termination always works, even if onboarding was skipped.
+
+---
+
+## Reports
+
+Each run generates a manager report containing:
+
+* Summary counts
+* Added employees (active only)
 * Removed employees
-* Terminated employees
+* Terminated employees processed
+* Artifact locations (logs, archives, snapshot)
+
+Reports are stored in:
+
+```
+output/reports/
+```
 
 ---
 
 ## Logging
 
-All script actions are logged to:
+All actions are logged with timestamps and severity levels:
 
 ```
 output/logs/lifecycle_sync.log
 ```
 
-### Example Log Entries
+Log levels:
 
-```
-2025-12-20 14:44:20 | [OK]    | User created: ahmet.yilmaz
-2025-12-20 14:44:21 | [OK]    | Added ahmet.yilmaz to group dev
-2025-12-20 14:44:22 | [OK]    | Locked account: mehmet.kaya
-```
+* INFO
+* RUN
+* OK
+* WARN
+* ERROR
 
----
-
-## Manager Report
-
-After each run, a detailed manager report is generated at:
-
-```
-output/reports/manager_update_<timestamp>.txt
-```
-
-### Report Contents
-
-* Number of added employees
-* Number of removed employees
-* Number of terminated employees
-* Lists of affected users and departments
-* Locations of logs, archives, and snapshot files
-
-Old reports are automatically cleared before each execution.
+The log file is cleared at the start of every run.
 
 ---
 
-## Email Notification
+## Snapshot Behavior
 
-The manager report is emailed using `mailutils`.
-
-### Email Command Used
-
-```bash
-mail -s "Employee Lifecycle Update" "$MANAGER_EMAIL" < report.txt
-```
-
-### Important Notes (Instructor Clarification)
-
-* Installing `mailutils` is sufficient
-* SMTP server configuration is not required
-* In containerized environments, emails may be queued but not delivered
-* Successful execution without errors is acceptable for grading
+* The script stores the normalized CSV as `last_employees.csv`
+* This file is used to detect changes in the next run
+* Snapshot is updated only after successful processing
 
 ---
 
-## How to Run the Project
+## Safety Notes
 
-### Make the script executable
-
-```bash
-chmod +x proj_script.sh
-```
-
-### Run the script (requires root privileges)
-
-```bash
-sudo ./proj_script.sh
-```
-
-### Optional: Specify a custom CSV file
-
-```bash
-sudo ./proj_script.sh custom_employees.csv
-```
+* Users are **locked**, not deleted
+* Home directories are archived before locking
+* Script must be run with sudo/root
+* Designed for lab, demo, and educational use
 
 ---
 
-## Updating Employees Without Opening the CSV
+## Example Output
 
-### Add a new employee
-
-```bash
-echo "10011,ahmet.yilmaz,Ahmet Yılmaz,Dev,Active" >> employees.csv
 ```
-
-### Mark an employee as terminated
-
-```bash
-sed -i 's/,mehmet.kaya,Mehmet Kaya,Dev,Active/,mehmet.kaya,Mehmet Kaya,Dev,Terminated/' employees.csv
+Added employees (active)  : 1
+Removed employees         : 0
+Offboarded by status      : 2
 ```
-
-### Remove an employee
-
-```bash
-sed -i '/,can.ozkan,/d' employees.csv
-```
-
-Then rerun the script:
-
-```bash
-sudo ./proj_script.sh
-```
-
----
-
-## Known Limitations
-
-* Email delivery may not reach inboxes in restricted or containerized environments
-* The script must be run with root privileges
-* `mailutils` must be installed for email support
-* User accounts are locked instead of deleted for safety reasons
-
----
-
-## Conclusion
-
-This project fulfills all requirements of the CMPE341 Linux Mini Project:
-
-* Process automation
-* File and directory management
-* User and group administration
-* Logging and reporting
-* Email notification as specified
-
-The solution is safe, repeatable, and suitable for real-world HR automation scenarios.
